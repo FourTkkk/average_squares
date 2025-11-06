@@ -35,6 +35,40 @@
   <section id="average-squares-documentation">
 <h1>Average Squares Documentation<a class="headerlink" href="#average-squares-documentation" title="Link to this heading">¶</a></h1>
 <p>This page contains documentation for the Average Squares project.</p>
+<p id="module-squares">Computation of weighted average of squares.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="squares.average_of_squares">
+<span class="sig-prename descclassname"><span class="pre">squares.</span></span><span class="sig-name descname"><span class="pre">average_of_squares</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_of_numbers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_of_weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#squares.average_of_squares" title="Link to this definition">¶</a></dt>
+<dd><p>Return the weighted average of a list of values.</p>
+<p>By default, all values are equally weighted, but this can be changed
+by the list_of_weights argument.</p>
+<section id="example">
+<h2>Example:<a class="headerlink" href="#example" title="Link to this heading">¶</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">average_of_squares</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="go">7.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">average_of_squares</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+<span class="go">8.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">average_of_squares</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="gr">AssertionError</span>: <span class="n">weights and numbers must have same length</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="squares.convert_numbers">
+<span class="sig-prename descclassname"><span class="pre">squares.</span></span><span class="sig-name descname"><span class="pre">convert_numbers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_of_strings</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#squares.convert_numbers" title="Link to this definition">¶</a></dt>
+<dd><p>Convert a list of strings into numbers, ignoring whitespace.</p>
+<section id="id1">
+<h2>Example:<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">convert_numbers</span><span class="p">([</span><span class="s2">&quot;4&quot;</span><span class="p">,</span> <span class="s2">&quot; 8 &quot;</span><span class="p">,</span> <span class="s2">&quot;15 16&quot;</span><span class="p">,</span> <span class="s2">&quot; 23    42 &quot;</span><span class="p">])</span>
+<span class="go">[4.0, 8.0, 15.0, 16.0, 23.0, 42.0]</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
 </section>
 
 
@@ -65,7 +99,11 @@
 <script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Average Squares Documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Average Squares Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#squares.average_of_squares"><code class="docutils literal notranslate"><span class="pre">average_of_squares()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#squares.convert_numbers"><code class="docutils literal notranslate"><span class="pre">convert_numbers()</span></code></a></li>
+</ul>
+</li>
 </ul>
 
 <div class="relations">
