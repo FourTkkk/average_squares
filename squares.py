@@ -50,6 +50,14 @@ def convert_numbers(list_of_strings):
     # ...then convert each substring into a number
     return [float(number_string) for number_string in all_numbers]
 
+def read_numbers_from_file(filename):
+    with open(filename, "r") as f:
+        lines = f.readlines()
+    # 去掉换行符，然后转换成数字
+    cleaned = [line.strip() for line in lines]
+    return convert_numbers(cleaned)
+
+
 
 # if __name__ == "__main__":
 #     numbers_strings = ["1","2","4"]
@@ -70,30 +78,39 @@ if __name__ == "__main__":
         description="Compute the (weighted) average of squares of given numbers."
     )
 
-    # Read only numbers from the command line (weights remain None)
     parser.add_argument(
-        "numbers",
-        nargs="+",              # at least one number
-        type=str,               # keep string so convert_numbers still works
-        help="Numbers to compute the average of squares for."
+        "file_numbers",
+        type=str,
+        help="File containing one number per line."
     )
+
+    # # Read only numbers from the command line (weights remain None)
+    # parser.add_argument(
+    #     "numbers",
+    #     nargs="+",              # at least one number
+    #     type=str,               # keep string so convert_numbers still works
+    #     help="Numbers to compute the average of squares for."
+    # )
 
     # 2️⃣ optional argument: --weights
     parser.add_argument(
         "--weights",
-        nargs="+",
+        # nargs="+",
         type=str,
-        help="Optional weights to apply to the numbers."
+        help="Optional file containing one weight per line."
     )
 
     args = parser.parse_args()
 
-    # Convert numbers from strings → floats
-    numbers = convert_numbers(args.numbers)
+    # # Convert numbers from strings → floats
+    # numbers = convert_numbers(args.numbers)
+    # Read numbers from file
+    numbers = read_numbers_from_file(args.file_numbers)
 
     # For now, weights stay None (exercise requirement)
     if args.weights is not None:
-        weights = convert_numbers(args.weights)
+        # weights = convert_numbers(args.weights)
+        weights = read_numbers_from_file(args.weights)
     else:
         weights = None
 
