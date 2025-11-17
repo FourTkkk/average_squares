@@ -66,7 +66,7 @@ def convert_numbers(list_of_strings):
 # argparse interface (NEW PART)
 # -----------------------------
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(
+    parser = argparse.ArgumentParser( 
         description="Compute the (weighted) average of squares of given numbers."
     )
 
@@ -78,13 +78,24 @@ if __name__ == "__main__":
         help="Numbers to compute the average of squares for."
     )
 
+    # 2️⃣ optional argument: --weights
+    parser.add_argument(
+        "--weights",
+        nargs="+",
+        type=str,
+        help="Optional weights to apply to the numbers."
+    )
+
     args = parser.parse_args()
 
     # Convert numbers from strings → floats
     numbers = convert_numbers(args.numbers)
 
     # For now, weights stay None (exercise requirement)
-    weights = None
+    if args.weights is not None:
+        weights = convert_numbers(args.weights)
+    else:
+        weights = None
 
     # Compute result
     result = average_of_squares(numbers, weights)
